@@ -1,0 +1,19 @@
+{
+  "name": "react-boilerplate",
+  "version": "1.0.0",
+  "description": "egghead tutorial modern js tooling with react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ThomasTheDane/webPlay.git"
+  },
+  "author": "ThomasTheDane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomasTheDane/webPlay/issues"
+  },
+  "homepage": "https://github.com/ThomasTheDane/webPlay#readme"
+}
