@@ -1,0 +1,74 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+#galleryView{
+  height: 100%;
+}
+
+#galleryCard img{
+  height: 300px;
+}
+
+#mainImage {
+  /* The image used */
+  background-image: url("https://pbs.twimg.com/profile_images/839928218710855680/B6JS6Aip.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: contain;
+}
+
+
+#controls{
+  position: fixed;
+  display: block;
+  width: 200px;
+  height: 100%;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -100px;
+  z-index: 2;
+  
+}
+
+#exitButton img{
+  width: 100px;
+  max-width: none;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  cursor: pointer;
+}
+
+#bottomControls{
+  height: 100px;
+  background-color: rgba(0,0,0,0.5);
+  display: inline-block;
+  position: absolute;
+  bottom: 0px;
+}
+
+#bottomControls img{
+  width: 100px;
+  max-width: none;
+  padding: 10px;
+  cursor: pointer;
+
+}
+
+#backButton{
+  float: left;
+}
+
+
+#forwardButton{
+  float:right;
+}

@@ -1,0 +1,11 @@
+Todo: 
+Fix animation transitions for gallery 
+Add service worker support for caching images 
+Add list management functionality 
+Add service worker support for cachign lits 
+Add better image selection from gallery controls 
+
+Things to look up: 
+https://html5boilerplate.com/
+css grid - see how you can - tutorials by Rachel something 
+Think through how you can contain all content within html, then style with css, then interactive with js 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/3.1.6/s.js"></script>
+
+    <script>
+            System.config({
+                packages:{
+                    "dist":{
+                        "defaultExtension":"js",
+                        "main":"main"
+                    }
+                }
+            });
+
+            System.import("dist");
+            console.log("loaded");
+
+    </script>
+</body>
+</html>
