@@ -3,39 +3,38 @@ let clockHeight = 700;
 let timeSpeed = 1;
 let scalingFactor = .7;
 
+let currentTime = 0;
+let currentTime1 = 8;
+let currentTime2 = 52;
+
 function setup() {
     createCanvas(clockWidth, clockHeight);
-    // frameRate(10);
-    // drawHands(clockWidth / 2, clockHeight / 2, (clockWidth / 2) * scalingFactor, 0, 1);
+    
     strokeWeight(1);
     // stroke('rgba(255, 0, 0, .25)')
-    colorMode(HSB);
-    drawHands(clockWidth / 2, clockHeight / 2, (clockWidth / 5) * scalingFactor, 8, 52, 0);
+    // drawHands(clockWidth / 2, clockHeight / 2, (clockWidth / 5) * scalingFactor, currentTime1, currentTime2, 0);
 }
 
-let currentTime = 0;
-// let currentTime1 = 8;
-// let currentTime2 = 52;
 function draw() {
-    // clear();
+    clear();
     currentTime += deltaTime;
     strokeWeight(1);
 
     // print(time);
-    let time1 = (currentTime / 1000) / 60;
-    let time2 = currentTime / 1000;
+    currentTime1 = (currentTime / 1000) / 60;
+    currentTime2 = currentTime / 1000;
     
-    // if(time2 == 60) time2 = 0;
-    console.log(time2);
+    
+    rainbowStyle(currentTime);
 
-    // drawHands(clockWidth / 2, clockHeight / 2, (clockWidth / 5) * scalingFactor, time1, time2, 0);
+    drawHands(clockWidth / 2, clockHeight / 2, (clockWidth / 5) * scalingFactor, currentTime1, currentTime2, 0);
     
     //framerate 
     console.log("Frame Rate: ", 1 / (deltaTime / 1000) )
 }
 
 function drawHands(x, y, length, time1, time2, depth) {
-    if(depth > 10 || length < 1){
+    if(depth > 10 || length < 2){
         // console.log("Hit dat limit!")
         return 
     }
@@ -49,11 +48,8 @@ function drawHands(x, y, length, time1, time2, depth) {
     // circle(newX1, newY1, 5);
     // circle(newX2, newY2, 5);
 
-    drawHands(newX1, newY1, length * scalingFactor, time1 + time1, time1 + time2, depth + 1);
-    drawHands(newX2, newY2, length * scalingFactor, time2 + time1, time2 + time2, depth + 1);
-    // drawHands(newX1, newY1, length * scalingFactor, time1, time1 + time2, depth + 1);
-    // drawHands(newX2, newY2, length * scalingFactor, time1 + time2, time2, depth + 1);
-
+    drawHands(newX1, newY1, length * scalingFactor, time1 + currentTime1, time1 + currentTime2, depth + 1);
+    drawHands(newX2, newY2, length * scalingFactor, time2 + currentTime1, time2 + currentTime2, depth + 1);
 }
 
 function drawLineWithTime(x, y, length, time) {
@@ -69,7 +65,10 @@ function timeToDegree(time) {
 }
 
 function rainbowStyle(time){
-    stroke(time % 60);
+    const color = map(time % 60, 0, 60, 0, 255);
+    console.log("calculated color: ", color);
+    
+    // stroke(`rgba(255, 255, 255, 1.0)`)
 }
 
 function increasedWidthStyle(depth){
