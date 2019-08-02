@@ -65,7 +65,7 @@ class Gallery {
         }
         setInterval(function () {
             thisGallery.timeSinceIdle += 100;
-            console.log(thisGallery.timeSinceIdle);
+            // console.log(thisGallery.timeSinceIdle);
             if (thisGallery.timeSinceIdle > 3000) {
                 thisGallery.hideControls();
             }
@@ -100,8 +100,7 @@ class Gallery {
 
     renderLists() {
         console.log("Rendering list");
-        for (const [aListName, aList] in Object.entries(this.lists)) {
-            const divWrapper = document.createElement("div");
+        for (const aListName in this.lists) {
             const template =
                 `<div class="uk-width-1-3 galleryCard" data-listname="${aListName}">
                 <a href="#">
@@ -112,19 +111,18 @@ class Gallery {
                 </a>
             </div>`;
             // add the element
-            divWrapper.innerHTML = template;
-            document.getElementById("galleryListGrid").insertAdjacentHTML('afterbegin', divWrapper);
+            document.getElementById("galleryListGrid").insertAdjacentHTML('afterbegin', template);
 
             // set up click handler to choose list 
-            divWrapper.addEventListener("click", () => {
+            document.getElementsByClassName("galleryCard")[0].addEventListener("click", () => {
                 this.showGallery(aListName);
                 this.showImage();
             });
 
             // hover to show cards effect 
             let hoverInterval;
-            document.querySelector(".galleryCard").addEventListener("mouseenter", function () {
-                let listName = this.dataset.listname; //TODO: clean up aListName vs. aList 
+            document.getElementsByClassName("galleryCard")[0].addEventListener("mouseenter", function () {
+                let listName = this.dataset.listname;
                 let element = this;
                 let index = 0;
 
@@ -139,7 +137,6 @@ class Gallery {
 
             });
 
-            // Todo: might need to be finished 
             document.getElementsByClassName("galleryCard")[0].addEventListener("mouseleave", function () {
                 clearInterval(hoverInterval);
             });
@@ -156,7 +153,7 @@ class Gallery {
         document.getElementById("galleryView").className += "uk-animation-slide-bottom uk-transform-origin-top-center"
 
         this.chosenList = thisGallery.lists[listName];
-        console.log(this);
+        // console.log(this);
     }
 }
 
